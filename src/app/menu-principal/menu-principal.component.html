@@ -1,0 +1,11 @@
+<mat-toolbar color="primary" class="mat-elevation-z8" [hidden]="!exibindoMenu">
+  <button mat-button class="mat-raised-button mat-primary" style="margin-left: 10px;" [routerLink]="['/equipes']"> Equipes</button>
+  <button mat-button class="mat-raised-button mat-primary" style="margin-left: 10px;" [routerLink]="['/funcionarios']"> Funcionarios</button>
+  <button mat-button class="mat-raised-button mat-primary" style="margin-left: 10px;" [routerLink]="['/ferias']"> Ferias</button>
+  <span style="flex: 1 1 auto;"></span>
+</mat-toolbar>
+
+
+<div class="container mt-5">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,152 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.bg-primary,
+.btn-outline-primary:hover,
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+.btn-outline-primary:not(:disabled):not(.disabled).active,
+.show > .btn-outline-primary.dropdown-toggle,
+.page-item.active .page-link {
+  background-color: #005aae !important;
+  border-color: #005aae !important;
+}
+
+.btn-primary {
+  background-color: #005aae;
+  border-color: #005aae;
+}
+
+.btn-outline-primary,
+.page-link {
+  border-color: #005aae !important;
+  color: #005aae;
+}
+
+body {
+  background-color: #e4e4e4;
+  font-family: 'Roboto', sans-serif;
+}
+
+.div-panel {
+  background-color: white;
+}
+
+.dataTables_empty {
+  display: none;
+}
+
+.list-group-item {
+  padding: 3px 10px;
+}
+
+.modal-confirmation {
+  width: 70%;
+  margin: auto;
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/assets/icons/mat-icons.woff2) format('woff2'), url(/assets/icons/mat-icons.woff) format('woff'), url(/assets/icons/mat-icons.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'liga'; /* Support for IE. */
+}
+
+.snackbar {
+  margin-top: 4em !important;
+}
+
+.success-snackbar {
+  color: #dbf0da;
+}
+
+.info-snackbar {
+  color: #3F51B5;
+  background-color: #F3F2F1;
+  font-size: 10pt;
+  font-weight: bold;
+  border: solid thin;
+  border-radius: 10px !important;
+}
+
+  .info-snackbar button {
+    color: #3F51B5;
+    /*text-align: right;*/
+    align-content: center;
+    right: -10px !important;
+  }
+
+
+.error-snackbar {
+  color: #e98f8f;
+}
+
+.container-space {
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.5em;
+}
+
+.loading-shade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.width-95percent {
+  width: 95%
+}
+
+.centralizado {
+  text-align: center;
+}
+
+.mat-dialog-container {
+  border-radius: 5px !important;
+}
+
+.mat-dialog-content {
+  border-top: solid;
+  border-width: thin;
+  border-color: lightgray;
+  border-bottom: solid;
+  border-bottom-color: lightgray;
+  border-bottom-width: thin;
+}
+.mat-dialog-content span {
+  padding-right:5px;
+}
+  .mat-dialog-actions {
+  display: block;
+  text-align: right;
+}
+
+  .mat-dialog-actions butto[first] {
+    border-radius: 5px;
+  }

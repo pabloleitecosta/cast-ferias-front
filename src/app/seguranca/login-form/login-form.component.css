@@ -1,0 +1,19 @@
+.painel_login {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.painel_conteudo_login {
+    color: #6b6b6b;
+    text-align: center;
+}
+
+.conteudo_login {
+    display: block;
+    max-width: 420px;
+    margin: auto;
+    padding: 0 10px;
+    padding-top: 10%;
+}

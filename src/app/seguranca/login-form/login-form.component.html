@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row box-cadastro">
+
+      <div class="conteudo_login">
+
+          <div class="col-8 painel_conteudo_login">
+
+              <div class="painel_login">
+                  <form autocomplete="off" #f="ngForm">
+                      <div class="ui-g ui-fluid">
+                  
+                        <div class="ui-g-12">
+                          <h1>Login</h1>
+                        </div>
+                  
+                        <div class="ui-g-12">
+                          <input  
+                                 type="email" 
+                                 name="usuario" 
+                                 placeholder="E-mail"
+                                 ngModel 
+                                 required #usuario>
+                        </div>
+                  
+                        <div class="ui-g-12">
+                          <input   
+                                  type="password" 
+                                  name="senha" 
+                                  placeholder="Senha"
+                                  ngModel 
+                                  required #senha>
+                        </div>
+                  
+                        <div class="ui-g-12">
+                          <button 
+                                  mat-raised-button 
+                                  color="primary"
+                                  type="submit" 
+                                  [disabled]="!f.valid"
+                                  (click)="login(usuario.value, senha.value); senha.value = '';">Acessar</button>
+                        </div>
+                  
+                      </div>
+                    </form>           
+              </div>
+      
+          </div>
+  
+      </div>
+        
+    </div>
+</div>

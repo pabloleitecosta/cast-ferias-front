@@ -1,0 +1,19 @@
+<form autocomplete="off" [formGroup]="frmEquipe">
+  <h1 mat-dialog-title>{{tituloTela}}</h1>
+  <mat-dialog-content style="max-height:1000px;height:calc(100% - 100px);padding-right:0px">
+      <div class="div-panel mat-elevation-z8 mt-2">
+          <mat-grid-list cols="2" rowHeight="6em">
+
+              <mat-grid-tile>
+                  <mat-form-field class="width-95percent">
+                      <input matInput placeholder="Nome da Equipe"  maxlength="100" formControlName="nmequipe">
+                  </mat-form-field>
+              </mat-grid-tile>
+
+          </mat-grid-list>
+      </div>
+  </mat-dialog-content>
+  <mat-dialog-actions style="text-align: right;display:block;width:100%;padding-top: 10px">
+  <button id="btnSalvar" mat-raised-button color="primary" [disabled]="!frmEquipe.valid" (click)="onSalvar()">Salvar</button>
+  </mat-dialog-actions>
+</form>

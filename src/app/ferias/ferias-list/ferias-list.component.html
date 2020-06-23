@@ -1,0 +1,70 @@
+<h4>Férias</h4>
+
+<button mat-raised-button color="primary" [routerLink]="['/ferias/ferias-detail']">
+    <mat-icon>add</mat-icon>
+    Lançamentos
+  </button>
+
+  <div class="div-panel mat-elevation-z8 mt-2">
+    <div class="loading-shade" *ngIf="dataSource.loading$ | async">
+      <mat-spinner></mat-spinner>
+    </div>
+  
+    <mat-table [dataSource]="dataSource">
+  
+      <ng-container matColumnDef="funcionario">
+        <mat-header-cell *matHeaderCellDef>Funcionário</mat-header-cell>
+        <mat-cell class="duration-cell" *matCellDef="let item">
+          <div>
+            {{item.funcionario.nome}}
+            <span class="funcionario" *ngIf="item.funcionario.nome"></span>
+          </div>
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="dataInicio">
+        <mat-header-cell *matHeaderCellDef>Dt. Início</mat-header-cell>
+        <mat-cell class="duration-cell" *matCellDef="let item">
+          <div>
+            {{item.dataInicio  | date: 'dd/MM/yyyy'}}
+            <span class="dataInicio" *ngIf="item.dataInicio"></span>
+          </div>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dataTermino">
+      <mat-header-cell *matHeaderCellDef>Dt. Término</mat-header-cell>
+      <mat-cell class="duration-cell" *matCellDef="let item">
+        <div>
+          {{item.dataTermino  | date: 'dd/MM/yyyy'}}
+          <span class="dataTermino" *ngIf="item.dataTermino"></span>
+        </div>
+      </mat-cell>
+  </ng-container>
+  
+      <ng-container matColumnDef="editar">
+        <mat-header-cell class="colunasAcao"  *matHeaderCellDef>Editar</mat-header-cell>
+        <mat-cell class="colunasAcao"  *matCellDef="let ferias">
+          <button matTooltip="Alterar" class="botoesAcao" mat-icon-button color="primary" [routerLink]="['/ferias', ferias.codigo]" >
+            <mat-icon>edit</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="excluir">
+        <mat-header-cell class="colunasAcao"  *matHeaderCellDef>Excluir</mat-header-cell>
+        <mat-cell class="colunasAcao"  *matCellDef="let ferias">
+          <button matTooltip="Excluir" class="botoesAcao" mat-icon-button color="primary" (click)="onExcluir(ferias)">
+            <mat-icon>delete_sweep</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+  
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+    <mat-paginator [length]="dataSource.recordsTotal" [pageSize]="10" [pageSizeOptions]="[10, 25, 50]"></mat-paginator>
+  
+  </div>
+    

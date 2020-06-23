@@ -1,0 +1,91 @@
+<h4>Funcionários</h4>
+
+<button mat-raised-button color="primary" [routerLink]="['/funcionarios/funcionario-detail']">
+    <mat-icon>add</mat-icon>
+    Adicionar
+  </button>
+
+  <div class="div-panel mat-elevation-z8 mt-2">
+    <div class="loading-shade" *ngIf="dataSource.loading$ | async">
+      <mat-spinner></mat-spinner>
+    </div>
+  
+    <mat-table [dataSource]="dataSource">
+  
+      <ng-container matColumnDef="numeroMatricula">
+        <mat-header-cell *matHeaderCellDef>Nº Matrícula</mat-header-cell>
+        <mat-cell class="duration-cell" *matCellDef="let item">
+          <div>
+            {{item.numeroMatricula}}
+            <span class="numeroMatricula" *ngIf="item.numeroMatricula"></span>
+          </div>
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="nome">
+        <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+        <mat-cell class="duration-cell" *matCellDef="let item">
+          <div>
+            {{item.nome}}
+            <span class="nome" *ngIf="item.nome"></span>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="equipe">
+        <mat-header-cell *matHeaderCellDef>Equipe</mat-header-cell>
+        <mat-cell class="duration-cell" *matCellDef="let item">
+          <div>
+            {{item.equipe.nmequipe}}
+            <span class="equipe" *ngIf="item.equipe.nmequipe"></span>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+  
+      <ng-container matColumnDef="dataNascimento">
+        <mat-header-cell *matHeaderCellDef>Dt. Nascimento</mat-header-cell>
+        <mat-cell class="duration-cell" *matCellDef="let item">
+          <div>
+            {{item.dataNascimento}}
+            <span class="dataNascimento" *ngIf="item.dataNascimento"></span>
+          </div>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dataContratacao">
+      <mat-header-cell *matHeaderCellDef>Dt. Contratação</mat-header-cell>
+      <mat-cell class="duration-cell" *matCellDef="let item">
+        <div>
+          {{item.dataContratacao}}
+          <span class="dataContratacao" *ngIf="item.dataContratacao"></span>
+        </div>
+      </mat-cell>
+  </ng-container>
+  
+      <ng-container matColumnDef="editar">
+        <mat-header-cell class="colunasAcao"  *matHeaderCellDef>Editar</mat-header-cell>
+        <mat-cell class="colunasAcao"  *matCellDef="let funcionario">
+          <button matTooltip="Alterar" class="botoesAcao" mat-icon-button color="primary" [routerLink]="['/funcionarios', funcionario.codigo]" >
+            <mat-icon>edit</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="excluir">
+        <mat-header-cell class="colunasAcao"  *matHeaderCellDef>Excluir</mat-header-cell>
+        <mat-cell class="colunasAcao"  *matCellDef="let funcionario">
+          <button matTooltip="Excluir" class="botoesAcao" mat-icon-button color="primary" (click)="onExcluir(funcionario)">
+            <mat-icon>delete_sweep</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+  
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+    <mat-paginator [length]="dataSource.recordsTotal" [pageSize]="10" [pageSizeOptions]="[10, 25, 50]"></mat-paginator>
+  
+  </div>
+  

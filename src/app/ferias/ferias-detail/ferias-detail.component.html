@@ -1,0 +1,52 @@
+<form autocomplete="off" [formGroup]="frmLancamentoFerias">
+    <h4 mat-dialog-title>{{tituloTela}}</h4>
+    <mat-dialog-content style="max-height:1000px;height:calc(100% - 100px);padding-right:0px">
+      <div class="div-panel mat-elevation-z8 mt-2">
+          <mat-grid-list cols="4" rowHeight="6em">
+  
+                <mat-grid-tile>
+                  <mat-form-field class="width-95percent">
+                      <mat-select placeholder="Funcionário" formControlName="funcionario">
+                            <mat-option>Selecione...</mat-option>
+                            <mat-option *ngFor="let item of funcionarios" [value]="item">
+                                {{item.nome}}
+                            </mat-option>
+                        </mat-select>
+                        <app-message [control]="frmLancamentoFerias.get('funcionario')" error="required" text="Informe a Equipe."></app-message>
+                    </mat-form-field>
+                </mat-grid-tile>
+  
+                <mat-grid-tile>
+                  <mat-form-field class="width-95percent">
+                      <input matInput [matDatepicker]="pickerInicial" placeholder="Data Início" formControlName="dataInicio">
+                    <mat-datepicker-toggle matSuffix [for]="pickerInicial"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerInicial></mat-datepicker>
+                    <app-message [control]="frmLancamentoFerias.get('dataInicio')" error="required" text="Informe a Data de Início."></app-message>
+                    </mat-form-field>
+                </mat-grid-tile>
+  
+                <mat-grid-tile>
+                  <mat-form-field class="width-95percent">
+                      <input matInput [matDatepicker]="pickerFinal" placeholder="Data Término" formControlName="dataTermino">
+                    <mat-datepicker-toggle matSuffix [for]="pickerFinal"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerFinal></mat-datepicker>
+                    <app-message [control]="frmLancamentoFerias.get('dataTermino')" error="required" text="Informe a Data de Término."></app-message>
+                    </mat-form-field>
+                </mat-grid-tile>
+
+            </mat-grid-list>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions style="text-align: right;display:block;width:100%;padding-top: 10px">
+      <button id="btnSalvar" mat-raised-button color="primary" [disabled]="!frmLancamentoFerias.valid" (click)="onSalvar()">Salvar</button>
+    </mat-dialog-actions>
+  
+    <p>
+      Form Value: {{ frmLancamentoFerias.value | json }}
+    </p>
+    <p>
+      Form Status: {{ frmLancamentoFerias.status }}
+    </p>
+  
+  </form>
+  

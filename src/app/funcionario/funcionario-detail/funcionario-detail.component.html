@@ -1,0 +1,101 @@
+<form autocomplete="off" [formGroup]="frmFuncionario">
+  <h4 mat-dialog-title>{{tituloTela}}</h4>
+  <mat-dialog-content style="max-height:1000px;height:calc(100% - 100px);padding-right:0px">
+    <div class="div-panel mat-elevation-z8 mt-2">
+        <mat-grid-list cols="4" rowHeight="6em">
+
+              <mat-grid-tile>
+                <mat-form-field class="width-95percent">
+                    <input matInput placeholder="Nome do Funcionario"  maxlength="100" formControlName="nome">
+                      <app-message [control]="frmFuncionario.get('nome')" error="required" text="Informe o Nome do Funcionario."></app-message>
+                  </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <mat-form-field class="width-95percent">
+                    <mat-select placeholder="Equipe" formControlName="equipe">
+                          <mat-option>Selecione...</mat-option>
+                          <mat-option *ngFor="let item of equipes" [value]="item">
+                              {{item.nmequipe}}
+                          </mat-option>
+                      </mat-select>
+                      <app-message [control]="frmFuncionario.get('equipe')" error="required" text="Informe a Equipe."></app-message>
+                  </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <mat-form-field class="width-95percent">
+                    <input matInput [matDatepicker]="pickerInicial" placeholder="Data Nascimento" formControlName="dataNascimento">
+                  <mat-datepicker-toggle matSuffix [for]="pickerInicial"></mat-datepicker-toggle>
+                  <mat-datepicker #pickerInicial></mat-datepicker>
+                  <app-message [control]="frmFuncionario.get('dataNascimento')" error="required" text="Informe a Data de Nascimento."></app-message>
+                  </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <mat-form-field class="width-95percent">
+                    <input matInput [matDatepicker]="pickerFinal" placeholder="Data Contratação" formControlName="dataContratacao">
+                  <mat-datepicker-toggle matSuffix [for]="pickerFinal"></mat-datepicker-toggle>
+                  <mat-datepicker #pickerFinal></mat-datepicker>
+                  <app-message [control]="frmFuncionario.get('dataContratacao')" error="required" text="Informe a Data de Contratação."></app-message>
+                  </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <mat-form-field class="width-95percent">
+                    <input matInput placeholder="Rua"  maxlength="100" formControlName="rua">
+                    <app-message [control]="frmFuncionario.get('rua')" error="required" text="Informe a Rua."></app-message>
+                </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <mat-form-field class="width-95percent">
+                    <input matInput placeholder="Número"  maxlength="50" formControlName="numero">
+                    <app-message [control]="frmFuncionario.get('numero')" error="required" text="Informe o Número."></app-message>
+                </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <mat-form-field class="width-95percent">
+                    <input matInput placeholder="Complemento"  maxlength="100" formControlName="complemento">
+                    <app-message [control]="frmFuncionario.get('complemento')" error="required" text="Informe o Complemento."></app-message>
+                </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <mat-form-field class="width-95percent">
+                    <input matInput placeholder="Bairro"  maxlength="100" formControlName="bairro">
+                    <app-message [control]="frmFuncionario.get('bairro')" error="required" text="Informe o Bairro."></app-message>
+                </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <mat-form-field class="width-95percent">
+                    <input matInput placeholder="Cidade"  maxlength="100" formControlName="cidade">
+                    <app-message [control]="frmFuncionario.get('cidade')" error="required" text="Informe o Cidade."></app-message>
+                </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <mat-form-field class="width-95percent">
+                    <input matInput placeholder="Estado"  maxlength="100" formControlName="estado">
+                    <app-message [control]="frmFuncionario.get('estado')" error="required" text="Informe o Estado."></app-message>
+                </mat-form-field>
+              </mat-grid-tile>
+
+          </mat-grid-list>
+      </div>
+  </mat-dialog-content>
+  <mat-dialog-actions style="text-align: right;display:block;width:100%;padding-top: 10px">
+    <button id="btnSalvar" mat-raised-button color="primary" [disabled]="!frmFuncionario.valid" (click)="onSalvar()">Salvar</button>
+  </mat-dialog-actions>
+<!--
+  <p>
+    Form Value: {{ frmFuncionario.value | json }}
+  </p>
+  <p>
+    Form Status: {{ frmFuncionario.status }}
+  </p>
+-->
+
+</form>
